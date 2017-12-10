@@ -24,9 +24,11 @@ h = X * theta;
 
 delta = h - y;
 
-J = (1 / (2 * m) ) * (delta' * delta) + ((lambda / (2 * m) ) * (theta' * theta));
+thetaReg = [0; theta(2:end)];
 
-grad = (1 / m) * (X' * delta) + ((lambda / m) * theta);
+J = (1 / (2 * m) ) * (delta' * delta) + ((lambda / (2 * m) ) * (thetaReg' * thetaReg));
+
+grad = (1 / m) * (X' * delta) + ((lambda / m) * thetaReg);
 
 
 
